@@ -1,0 +1,62 @@
+grammar Simple;
+
+start
+:
+	'hello' 'world'
+;
+
+// Palabras reservadas
+START: 'start';
+END: 'end';
+INT: 'int';
+REAL: 'real';
+CHAR: 'char';
+IF: 'if';
+ENDIF: 'endif';
+WHILE: 'while';
+ENDWHILE: 'endwhile';
+
+// Operadores matemáticos
+SUM: '+';
+REST: '-';
+MULT: '*';
+
+// Operadores de comparación
+HIGH: '>';
+LESS: '<';
+HEQL: '>=';
+LEQL: '<=';
+UNEQL: '!=';
+AND: '&&';
+OR: '||';
+NEGT: '¬';
+
+// Asignación
+ASSIG: '<<';
+
+// Puntos
+DOUPOINT: ':';
+DDPOINT: '::';
+SEMICOLON: ';';
+
+// Paréntesis
+OPENBRACKET: '(';
+CLOSEDBRACKET: ')';
+
+// Llaves
+OPENKEY: '{';
+CLOSEKEY: '}';
+
+// Números
+NUM: '-'? [0-9]+ ('.' [0-9]+)?;
+
+// Caracteres (variables)
+CHAR: [a-zA-Z_];
+
+// Variable
+VAR: 'var' [0-9] [0-9] [0-9];
+
+// Espacios en blanco
+SW: [ \t\r\n]+ -> skip;
+
+

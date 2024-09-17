@@ -1,0 +1,1 @@
+start:while(var001==var002&&var003<var004){var001<<3;}endwhile;

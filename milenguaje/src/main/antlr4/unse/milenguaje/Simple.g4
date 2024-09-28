@@ -1,45 +1,58 @@
 grammar Simple;
 
-//Definicion del Analizador Sintactico
-
-inicio_fin: START DOUPOINT programa END;
-
-programa: sentencia SEMICOLON programa | sentencia;
-
-sentencia: definicion | asignacion | if_sentencia | while_sentencia;
-
-definicion: DEFINT DDPOINT VAR ASSIG ENTERO SEMICOLON |
-			DEFREAl DDPOIN VAR ASSIG REAL SEMICOLON |
-			DEFCHAR DDPOIN VAR ASSIG CHAR SEMICON |
-			DEFBOOL DDPOIN VAR ASSIG BOOL SEMICON |
-			QUERY DEFINT DDPOINT VAR |
-			QUERY DEFREAL DDPOINT VAR |
-			QUERY DEFCHAR DDPOINT VAR
-			QUERY DEFBOOL DDPOINT VAR |
-			QUERY DEFREAL DDPOINT VAR OPENBRACKET ENTERO CLOSEBRACKET |
-			QUERY DEFCHAR DDPOINT VAR OPENBRACKET ENTERO CLOSEBRACKET |
-			QUERY DEFBOOL DDPOINT VAR OPENBRACKET ENTERO CLOSEBRACKET
-			;
-
-asignacion: VAR ASSIG ENTERO |
-			VAR ASSIG REAL |
-			VAR ASSIG CHAR |
-			VAR ASSIG BOOL |
-			VAR OPENBRACKET ENTERO CLOSEBRACKET REAL |
-			VAR OPENBRACKET ENTERO CLOSEBRACKET ENTERO |
-			VAR OPENBRACKET ENTERO CLOSEBRACKET BOOL |
-			;
-
-if_sentencia:;
-
-while_sentencia:;
+/**
+    ------------------------------------------
+           Analizador Sintáctico
+    ------------------------------------------
+*/
 
 
-//Definicion del Analizador Léxico Gramatico
+programa: START sentencia END;
+
+sentencia: (definicion | asignacion | if_sentence | while_sentence) SEMICOLON;
+
+definicion: type DDPOINT VAR ('<<<' literal_value)?
+           | ('?int' | '?real' | '?char' | '?bool') DDPOINT VAR('[' NUM ']')? ;
+
+asignacion: VAR ('<<<' (literal_value | exp_mat)
+                       | '[' NUM ']' '<<<' (literal_value | exp_mat));
+
+exp_mat: termino (SUM termino | REST termino)*;
+
+termino: factor (MULT factor | REST factor)*;
+
+factor: OPENBRACKET exp_mat CLOSEDBRACKET
+      | NUM
+      | VAR;
+
+bool: ('0' | '1')
+    | exp_log EQUAL exp_log;
+
+exp_log: VAR EQUAL (VAR | NUM )
+        | NEGT OPENBRACKET (bool | VAR) CLOSEDBRACKET
+        | exp_log EQUAL exp_log;
+
+if_sentence: IF OPENBRACKET bool CLOSEDBRACKET OPENKEY sentencia+ CLOSEKEY ENDIF;
+
+while_sentence: WHILE OPENBRACKET bool CLOSEDBRACKET OPENKEY sentencia+ CLOSEKEY ENDWHILE;
+
+type: DEFINT | DEFREAL | DEFCHAR;
+
+literal_value: NUM | CHAR | bool;
+
+
+/**
+    ------------------------------------------
+           Analizador Léxico Gramatico
+    ------------------------------------------
+*/
+
 start
 :
 	'hello' 'world'
 ;
+
+
 
 // Palabras reservadas
 START: 'start';
@@ -95,5 +108,6 @@ VAR: 'var' [0-9] [0-9] [0-9];
 
 // Espacios en blanco
 SW: [ \t\r\n]+ -> skip;
+
 
 

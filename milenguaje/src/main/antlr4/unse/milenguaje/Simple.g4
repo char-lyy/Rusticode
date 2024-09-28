@@ -55,7 +55,7 @@ start
 
 
 // Palabras reservadas
-START: 'start';
+START: 'start:';
 END: 'end';
 DEFINT: 'int';
 DEFREAL: 'real';

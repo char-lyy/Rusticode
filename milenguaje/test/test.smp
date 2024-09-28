@@ -1,1 +1,6 @@
-start:int::var001<<<05;end
+start:
+    if (var001 == 10) {
+          var002 <<< 1;
+      } endif;
+
+end

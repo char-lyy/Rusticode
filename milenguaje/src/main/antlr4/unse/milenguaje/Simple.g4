@@ -25,12 +25,14 @@ factor: OPENBRACKET exp_mat CLOSEDBRACKET
       | NUM
       | VAR;
 
-bool: ('0' | '1')
-    | exp_log EQUAL exp_log;
 
-exp_log: VAR EQUAL (VAR | NUM )
+bool: ('0' | '1') | exp_log;
+
+
+exp_log: VAR EQUAL (VAR | NUM)
         | NEGT OPENBRACKET (bool | VAR) CLOSEDBRACKET
         | exp_log EQUAL exp_log;
+
 
 if_sentence: IF OPENBRACKET bool CLOSEDBRACKET OPENKEY sentencia+ CLOSEKEY ENDIF;
 

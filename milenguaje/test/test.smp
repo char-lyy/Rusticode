@@ -1,6 +1,3 @@
 start:
-    if (var001 == 10) {
-          var002 <<< 1;
-      } endif;
-
+    var001 << 6 + 1;
 end

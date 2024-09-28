@@ -11,11 +11,11 @@ programa: START sentencia END;
 
 sentencia: (definicion | asignacion | if_sentence | while_sentence) SEMICOLON;
 
-definicion: type DDPOINT VAR ('<<<' literal_value)?
+definicion: type DDPOINT VAR (ASSIG literal_value)?
            | ('?int' | '?real' | '?char' | '?bool') DDPOINT VAR('[' NUM ']')? ;
 
-asignacion: VAR ('<<<' (literal_value | exp_mat)
-                       | '[' NUM ']' '<<<' (literal_value | exp_mat));
+asignacion: VAR ASSIG (literal_value | exp_mat
+                       | '[' NUM ']' ASSIG literal_value | exp_mat);
 
 exp_mat: termino (SUM termino | REST termino)*;
 
@@ -26,12 +26,23 @@ factor: OPENBRACKET exp_mat CLOSEDBRACKET
       | VAR;
 
 
-bool: ('0' | '1') | exp_log;
+bool: ('True' | 'False') | exp_log EQUAL exp_log;
 
 
-exp_log: VAR EQUAL (VAR | NUM)
-        | NEGT OPENBRACKET (bool | VAR) CLOSEDBRACKET
-        | exp_log EQUAL exp_log;
+exp_log
+    : exp_log AND exp_log
+    | exp_log OR exp_log
+    | exp_log HIGH exp_log
+    | exp_log LESS exp_log
+    | exp_log HEQL exp_log
+    | exp_log LEQL exp_log
+    | VAR EQUAL (VAR | NUM)
+    | NEGT OPENBRACKET exp_log CLOSEDBRACKET
+    | OPENBRACKET exp_log CLOSEDBRACKET
+
+    | VAR
+    | NUM
+    ;
 
 
 if_sentence: IF OPENBRACKET bool CLOSEDBRACKET OPENKEY sentencia+ CLOSEKEY ENDIF;
@@ -66,6 +77,8 @@ IF: 'if';
 ENDIF: 'endif';
 WHILE: 'while';
 ENDWHILE: 'endwhile';
+TRUE: 'True';
+FALSE: 'False';
 
 // Operadores matemáticos
 SUM: '+';
@@ -110,6 +123,5 @@ VAR: 'var' [0-9] [0-9] [0-9];
 
 // Espacios en blanco
 SW: [ \t\r\n]+ -> skip;
-
 
 

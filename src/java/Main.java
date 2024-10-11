@@ -1,3 +1,5 @@
+package java;
+
 public class Main {
 
     private static final String EXTENSION = "smp";

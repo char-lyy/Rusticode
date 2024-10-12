@@ -1,4 +1,12 @@
-package java;
+
+
+import language.SimpleCustomVisitor;
+import language.SimpleLexer;
+import language.SimpleParser;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import java.io.IOException;
+
 
 public class Main {
 
@@ -9,7 +17,7 @@ public class Main {
 
         System.out.println("Interpreting file " + program);
 
-        SimpleLexer lexer = new SimpleLexer(new ANTLRFileStream(program));
+        SimpleLexer lexer = new SimpleLexer(CharStreams.fromFileName(program));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         SimpleParser parser = new SimpleParser(tokens);
 

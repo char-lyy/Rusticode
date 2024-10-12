@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="deb140d5-d8e8-4a0f-a7b3-26eb469dd0ee" name="Changes" comment="regeneracion de archivos de antlr">
+      <change afterPath="$PROJECT_DIR$/src/main/java/language/SimpleCustomVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/antlr/Simple.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/Simple.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/AnalizadorSemantico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AnalizadorSemantico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/TablaDeSimbolos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TablaDeSimbolos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/language/Simple.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/Simple.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/language/Simple.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/Simple.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleBaseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleBaseVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleLexer.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleVisitor.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;evelinnn19&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/char-lyy/Rusticode.git&quot;,
+    &quot;accountId&quot;: &quot;407e9fa1-e27b-4953-99e3-2010254890e8&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2nInRqKg33i5GikBmV1RxnJ5tNH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Evelin Suarez/OneDrive/Desktop/Estudio/repoRusti/Rusticode&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.19655173&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="language" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Evelin Suarez\OneDrive\Desktop\Estudio\repoRusti\Rusticode\src\main" />
+      <recent name="C:\Users\Evelin Suarez\OneDrive\Desktop\Estudio\repoRusti\Rusticode\src\antlr" />
+      <recent name="C:\Users\Evelin Suarez\OneDrive\Desktop\Estudio\repoRusti\Rusticode\src\java" />
+      <recent name="C:\Users\Evelin Suarez\OneDrive\Desktop\Estudio\repoRusti\Rusticode" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="deb140d5-d8e8-4a0f-a7b3-26eb469dd0ee" name="Changes" comment="" />
+      <created>1728669451248</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728669451248</updated>
+    </task>
+    <task id="LOCAL-00001" summary="regeneracion de archivos de antlr">
+      <option name="closed" value="true" />
+      <created>1728671220480</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1728671220480</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="organizacion directorios" />
+    <MESSAGE value="regeneracion de archivos de antlr" />
+    <option name="LAST_COMMIT_MESSAGE" value="regeneracion de archivos de antlr" />
+  </component>
+</project>

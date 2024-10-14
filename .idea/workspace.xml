@@ -5,22 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="deb140d5-d8e8-4a0f-a7b3-26eb469dd0ee" name="Changes" comment="regeneracion de archivos de antlr">
-      <change afterPath="$PROJECT_DIR$/src/main/java/language/SimpleCustomVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/antlr/Simple.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/Simple.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/AnalizadorSemantico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AnalizadorSemantico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/TablaDeSimbolos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TablaDeSimbolos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/language/Simple.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/Simple.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/language/Simple.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/Simple.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleBaseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleBaseVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleLexer.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleLexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleLexer.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/language/SimpleVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/language/SimpleVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/Simple.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/Simple.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/SimpleBaseListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/SimpleBaseVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/SimpleLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/SimpleLexer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/SimpleLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/SimpleListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/SimpleParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/SimpleVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/language/Simple.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/language/Simple.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/language/SimpleBaseListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/language/SimpleBaseVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/language/SimpleCustomVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/language/SimpleLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/language/SimpleLexer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/language/SimpleLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/language/SimpleListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/language/SimpleParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/language/SimpleVisitor.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,17 +67,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Evelin Suarez/OneDrive/Desktop/Estudio/repoRusti/Rusticode&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.19655173&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Evelin Suarez/OneDrive/Desktop/Estudio/Rusticode/src/main/java/language",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.19655173"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="language" />

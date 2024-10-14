@@ -1,5 +1,4 @@
-// Generated from C:/Users/Evelin Suarez/OneDrive/Desktop/Estudio/repoRusti/Rusticode/src/antlr/Simple.g4 by ANTLR 4.13.1
-package language;
+// Generated from C:/Users/Evelin Suarez/OneDrive/Desktop/Estudio/Rusticode/src/main/antlr/Simple.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;

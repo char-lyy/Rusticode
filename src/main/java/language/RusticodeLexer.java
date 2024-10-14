@@ -1,4 +1,3 @@
-// Generated from C:/Users/Evelin Suarez/OneDrive/Desktop/Estudio/Rusticode/src/main/antlr/Simple.g4 by ANTLR 4.13.1
 package language;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
@@ -10,8 +9,8 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
-public class SimpleLexer extends Lexer {
-	static { RuntimeMetaData.checkVersion("4.13.1", RuntimeMetaData.VERSION); }
+public class RusticodeLexer extends Lexer {
+	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -98,13 +97,13 @@ public class SimpleLexer extends Lexer {
 	}
 
 
-	public SimpleLexer(CharStream input) {
+	public RusticodeLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Simple.g4"; }
+	public String getGrammarFileName() { return "Rusticode.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

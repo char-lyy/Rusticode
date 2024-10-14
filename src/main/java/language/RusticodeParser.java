@@ -1,4 +1,4 @@
-// Generated from C:/Users/Evelin Suarez/OneDrive/Desktop/Estudio/Rusticode/src/main/antlr/Simple.g4 by ANTLR 4.13.1
+package language;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
-public class SimpleParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.13.1", RuntimeMetaData.VERSION); }
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
+public class RusticodeParser extends Parser {
+	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -91,7 +91,7 @@ public class SimpleParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Simple.g4"; }
+	public String getGrammarFileName() { return "Rusticode.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -102,33 +102,33 @@ public class SimpleParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public SimpleParser(TokenStream input) {
+	public RusticodeParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ProgramaContext extends ParserRuleContext {
-		public TerminalNode START() { return getToken(SimpleParser.START, 0); }
+		public TerminalNode START() { return getToken(RusticodeParser.START, 0); }
 		public SentenciaContext sentencia() {
 			return getRuleContext(SentenciaContext.class,0);
 		}
-		public TerminalNode END() { return getToken(SimpleParser.END, 0); }
+		public TerminalNode END() { return getToken(RusticodeParser.END, 0); }
 		public ProgramaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_programa; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterPrograma(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterPrograma(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitPrograma(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitPrograma(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitPrograma(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitPrograma(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -160,7 +160,7 @@ public class SimpleParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class SentenciaContext extends ParserRuleContext {
-		public TerminalNode SEMICOLON() { return getToken(SimpleParser.SEMICOLON, 0); }
+		public TerminalNode SEMICOLON() { return getToken(RusticodeParser.SEMICOLON, 0); }
 		public DefinicionContext definicion() {
 			return getRuleContext(DefinicionContext.class,0);
 		}
@@ -179,15 +179,15 @@ public class SimpleParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_sentencia; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterSentencia(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterSentencia(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitSentencia(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitSentencia(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitSentencia(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitSentencia(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -254,28 +254,28 @@ public class SimpleParser extends Parser {
 		public TypeContext type() {
 			return getRuleContext(TypeContext.class,0);
 		}
-		public TerminalNode DDPOINT() { return getToken(SimpleParser.DDPOINT, 0); }
-		public TerminalNode VAR() { return getToken(SimpleParser.VAR, 0); }
-		public TerminalNode ASSIG() { return getToken(SimpleParser.ASSIG, 0); }
+		public TerminalNode DDPOINT() { return getToken(RusticodeParser.DDPOINT, 0); }
+		public TerminalNode VAR() { return getToken(RusticodeParser.VAR, 0); }
+		public TerminalNode ASSIG() { return getToken(RusticodeParser.ASSIG, 0); }
 		public Literal_valueContext literal_value() {
 			return getRuleContext(Literal_valueContext.class,0);
 		}
-		public TerminalNode NUM() { return getToken(SimpleParser.NUM, 0); }
+		public TerminalNode NUM() { return getToken(RusticodeParser.NUM, 0); }
 		public DefinicionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_definicion; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterDefinicion(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterDefinicion(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitDefinicion(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitDefinicion(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitDefinicion(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitDefinicion(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -366,10 +366,10 @@ public class SimpleParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class AsignacionContext extends ParserRuleContext {
-		public TerminalNode VAR() { return getToken(SimpleParser.VAR, 0); }
-		public List<TerminalNode> ASSIG() { return getTokens(SimpleParser.ASSIG); }
+		public TerminalNode VAR() { return getToken(RusticodeParser.VAR, 0); }
+		public List<TerminalNode> ASSIG() { return getTokens(RusticodeParser.ASSIG); }
 		public TerminalNode ASSIG(int i) {
-			return getToken(SimpleParser.ASSIG, i);
+			return getToken(RusticodeParser.ASSIG, i);
 		}
 		public Literal_valueContext literal_value() {
 			return getRuleContext(Literal_valueContext.class,0);
@@ -377,22 +377,22 @@ public class SimpleParser extends Parser {
 		public Exp_matContext exp_mat() {
 			return getRuleContext(Exp_matContext.class,0);
 		}
-		public TerminalNode NUM() { return getToken(SimpleParser.NUM, 0); }
+		public TerminalNode NUM() { return getToken(RusticodeParser.NUM, 0); }
 		public AsignacionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_asignacion; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterAsignacion(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterAsignacion(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitAsignacion(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitAsignacion(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitAsignacion(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitAsignacion(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -464,13 +464,13 @@ public class SimpleParser extends Parser {
 		public TerminoContext termino(int i) {
 			return getRuleContext(TerminoContext.class,i);
 		}
-		public List<TerminalNode> SUM() { return getTokens(SimpleParser.SUM); }
+		public List<TerminalNode> SUM() { return getTokens(RusticodeParser.SUM); }
 		public TerminalNode SUM(int i) {
-			return getToken(SimpleParser.SUM, i);
+			return getToken(RusticodeParser.SUM, i);
 		}
-		public List<TerminalNode> REST() { return getTokens(SimpleParser.REST); }
+		public List<TerminalNode> REST() { return getTokens(RusticodeParser.REST); }
 		public TerminalNode REST(int i) {
-			return getToken(SimpleParser.REST, i);
+			return getToken(RusticodeParser.REST, i);
 		}
 		public Exp_matContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -478,15 +478,15 @@ public class SimpleParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_exp_mat; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterExp_mat(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterExp_mat(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitExp_mat(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitExp_mat(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitExp_mat(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitExp_mat(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -553,13 +553,13 @@ public class SimpleParser extends Parser {
 		public FactorContext factor(int i) {
 			return getRuleContext(FactorContext.class,i);
 		}
-		public List<TerminalNode> MULT() { return getTokens(SimpleParser.MULT); }
+		public List<TerminalNode> MULT() { return getTokens(RusticodeParser.MULT); }
 		public TerminalNode MULT(int i) {
-			return getToken(SimpleParser.MULT, i);
+			return getToken(RusticodeParser.MULT, i);
 		}
-		public List<TerminalNode> REST() { return getTokens(SimpleParser.REST); }
+		public List<TerminalNode> REST() { return getTokens(RusticodeParser.REST); }
 		public TerminalNode REST(int i) {
-			return getToken(SimpleParser.REST, i);
+			return getToken(RusticodeParser.REST, i);
 		}
 		public TerminoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -567,15 +567,15 @@ public class SimpleParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_termino; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterTermino(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterTermino(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitTermino(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitTermino(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitTermino(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitTermino(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -638,28 +638,28 @@ public class SimpleParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class FactorContext extends ParserRuleContext {
-		public TerminalNode OPENBRACKET() { return getToken(SimpleParser.OPENBRACKET, 0); }
+		public TerminalNode OPENBRACKET() { return getToken(RusticodeParser.OPENBRACKET, 0); }
 		public Exp_matContext exp_mat() {
 			return getRuleContext(Exp_matContext.class,0);
 		}
-		public TerminalNode CLOSEDBRACKET() { return getToken(SimpleParser.CLOSEDBRACKET, 0); }
-		public TerminalNode NUM() { return getToken(SimpleParser.NUM, 0); }
-		public TerminalNode VAR() { return getToken(SimpleParser.VAR, 0); }
+		public TerminalNode CLOSEDBRACKET() { return getToken(RusticodeParser.CLOSEDBRACKET, 0); }
+		public TerminalNode NUM() { return getToken(RusticodeParser.NUM, 0); }
+		public TerminalNode VAR() { return getToken(RusticodeParser.VAR, 0); }
 		public FactorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_factor; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterFactor(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterFactor(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitFactor(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitFactor(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitFactor(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitFactor(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -713,30 +713,30 @@ public class SimpleParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class BoolContext extends ParserRuleContext {
-		public TerminalNode TRUE() { return getToken(SimpleParser.TRUE, 0); }
-		public TerminalNode FALSE() { return getToken(SimpleParser.FALSE, 0); }
+		public TerminalNode TRUE() { return getToken(RusticodeParser.TRUE, 0); }
+		public TerminalNode FALSE() { return getToken(RusticodeParser.FALSE, 0); }
 		public List<Exp_logContext> exp_log() {
 			return getRuleContexts(Exp_logContext.class);
 		}
 		public Exp_logContext exp_log(int i) {
 			return getRuleContext(Exp_logContext.class,i);
 		}
-		public TerminalNode EQUAL() { return getToken(SimpleParser.EQUAL, 0); }
+		public TerminalNode EQUAL() { return getToken(RusticodeParser.EQUAL, 0); }
 		public BoolContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bool; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterBool(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterBool(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitBool(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitBool(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitBool(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitBool(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -796,42 +796,42 @@ public class SimpleParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Exp_logContext extends ParserRuleContext {
-		public List<TerminalNode> VAR() { return getTokens(SimpleParser.VAR); }
+		public List<TerminalNode> VAR() { return getTokens(RusticodeParser.VAR); }
 		public TerminalNode VAR(int i) {
-			return getToken(SimpleParser.VAR, i);
+			return getToken(RusticodeParser.VAR, i);
 		}
-		public TerminalNode EQUAL() { return getToken(SimpleParser.EQUAL, 0); }
-		public TerminalNode NUM() { return getToken(SimpleParser.NUM, 0); }
-		public TerminalNode NEGT() { return getToken(SimpleParser.NEGT, 0); }
-		public TerminalNode OPENBRACKET() { return getToken(SimpleParser.OPENBRACKET, 0); }
+		public TerminalNode EQUAL() { return getToken(RusticodeParser.EQUAL, 0); }
+		public TerminalNode NUM() { return getToken(RusticodeParser.NUM, 0); }
+		public TerminalNode NEGT() { return getToken(RusticodeParser.NEGT, 0); }
+		public TerminalNode OPENBRACKET() { return getToken(RusticodeParser.OPENBRACKET, 0); }
 		public List<Exp_logContext> exp_log() {
 			return getRuleContexts(Exp_logContext.class);
 		}
 		public Exp_logContext exp_log(int i) {
 			return getRuleContext(Exp_logContext.class,i);
 		}
-		public TerminalNode CLOSEDBRACKET() { return getToken(SimpleParser.CLOSEDBRACKET, 0); }
-		public TerminalNode AND() { return getToken(SimpleParser.AND, 0); }
-		public TerminalNode OR() { return getToken(SimpleParser.OR, 0); }
-		public TerminalNode HIGH() { return getToken(SimpleParser.HIGH, 0); }
-		public TerminalNode LESS() { return getToken(SimpleParser.LESS, 0); }
-		public TerminalNode HEQL() { return getToken(SimpleParser.HEQL, 0); }
-		public TerminalNode LEQL() { return getToken(SimpleParser.LEQL, 0); }
+		public TerminalNode CLOSEDBRACKET() { return getToken(RusticodeParser.CLOSEDBRACKET, 0); }
+		public TerminalNode AND() { return getToken(RusticodeParser.AND, 0); }
+		public TerminalNode OR() { return getToken(RusticodeParser.OR, 0); }
+		public TerminalNode HIGH() { return getToken(RusticodeParser.HIGH, 0); }
+		public TerminalNode LESS() { return getToken(RusticodeParser.LESS, 0); }
+		public TerminalNode HEQL() { return getToken(RusticodeParser.HEQL, 0); }
+		public TerminalNode LEQL() { return getToken(RusticodeParser.LEQL, 0); }
 		public Exp_logContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_exp_log; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterExp_log(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterExp_log(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitExp_log(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitExp_log(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitExp_log(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitExp_log(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1014,15 +1014,15 @@ public class SimpleParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class If_sentenceContext extends ParserRuleContext {
-		public TerminalNode IF() { return getToken(SimpleParser.IF, 0); }
-		public TerminalNode OPENBRACKET() { return getToken(SimpleParser.OPENBRACKET, 0); }
+		public TerminalNode IF() { return getToken(RusticodeParser.IF, 0); }
+		public TerminalNode OPENBRACKET() { return getToken(RusticodeParser.OPENBRACKET, 0); }
 		public BoolContext bool() {
 			return getRuleContext(BoolContext.class,0);
 		}
-		public TerminalNode CLOSEDBRACKET() { return getToken(SimpleParser.CLOSEDBRACKET, 0); }
-		public TerminalNode OPENKEY() { return getToken(SimpleParser.OPENKEY, 0); }
-		public TerminalNode CLOSEKEY() { return getToken(SimpleParser.CLOSEKEY, 0); }
-		public TerminalNode ENDIF() { return getToken(SimpleParser.ENDIF, 0); }
+		public TerminalNode CLOSEDBRACKET() { return getToken(RusticodeParser.CLOSEDBRACKET, 0); }
+		public TerminalNode OPENKEY() { return getToken(RusticodeParser.OPENKEY, 0); }
+		public TerminalNode CLOSEKEY() { return getToken(RusticodeParser.CLOSEKEY, 0); }
+		public TerminalNode ENDIF() { return getToken(RusticodeParser.ENDIF, 0); }
 		public List<SentenciaContext> sentencia() {
 			return getRuleContexts(SentenciaContext.class);
 		}
@@ -1035,15 +1035,15 @@ public class SimpleParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_if_sentence; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterIf_sentence(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterIf_sentence(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitIf_sentence(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitIf_sentence(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitIf_sentence(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitIf_sentence(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1098,15 +1098,15 @@ public class SimpleParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class While_sentenceContext extends ParserRuleContext {
-		public TerminalNode WHILE() { return getToken(SimpleParser.WHILE, 0); }
-		public TerminalNode OPENBRACKET() { return getToken(SimpleParser.OPENBRACKET, 0); }
+		public TerminalNode WHILE() { return getToken(RusticodeParser.WHILE, 0); }
+		public TerminalNode OPENBRACKET() { return getToken(RusticodeParser.OPENBRACKET, 0); }
 		public BoolContext bool() {
 			return getRuleContext(BoolContext.class,0);
 		}
-		public TerminalNode CLOSEDBRACKET() { return getToken(SimpleParser.CLOSEDBRACKET, 0); }
-		public TerminalNode OPENKEY() { return getToken(SimpleParser.OPENKEY, 0); }
-		public TerminalNode CLOSEKEY() { return getToken(SimpleParser.CLOSEKEY, 0); }
-		public TerminalNode ENDWHILE() { return getToken(SimpleParser.ENDWHILE, 0); }
+		public TerminalNode CLOSEDBRACKET() { return getToken(RusticodeParser.CLOSEDBRACKET, 0); }
+		public TerminalNode OPENKEY() { return getToken(RusticodeParser.OPENKEY, 0); }
+		public TerminalNode CLOSEKEY() { return getToken(RusticodeParser.CLOSEKEY, 0); }
+		public TerminalNode ENDWHILE() { return getToken(RusticodeParser.ENDWHILE, 0); }
 		public List<SentenciaContext> sentencia() {
 			return getRuleContexts(SentenciaContext.class);
 		}
@@ -1119,15 +1119,15 @@ public class SimpleParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_while_sentence; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterWhile_sentence(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterWhile_sentence(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitWhile_sentence(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitWhile_sentence(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitWhile_sentence(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitWhile_sentence(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1182,24 +1182,24 @@ public class SimpleParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class TypeContext extends ParserRuleContext {
-		public TerminalNode DEFINT() { return getToken(SimpleParser.DEFINT, 0); }
-		public TerminalNode DEFREAL() { return getToken(SimpleParser.DEFREAL, 0); }
-		public TerminalNode DEFCHAR() { return getToken(SimpleParser.DEFCHAR, 0); }
+		public TerminalNode DEFINT() { return getToken(RusticodeParser.DEFINT, 0); }
+		public TerminalNode DEFREAL() { return getToken(RusticodeParser.DEFREAL, 0); }
+		public TerminalNode DEFCHAR() { return getToken(RusticodeParser.DEFCHAR, 0); }
 		public TypeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_type; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterType(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterType(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitType(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitType(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitType(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitType(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1236,8 +1236,8 @@ public class SimpleParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class Literal_valueContext extends ParserRuleContext {
-		public TerminalNode NUM() { return getToken(SimpleParser.NUM, 0); }
-		public TerminalNode CHAR() { return getToken(SimpleParser.CHAR, 0); }
+		public TerminalNode NUM() { return getToken(RusticodeParser.NUM, 0); }
+		public TerminalNode CHAR() { return getToken(RusticodeParser.CHAR, 0); }
 		public BoolContext bool() {
 			return getRuleContext(BoolContext.class,0);
 		}
@@ -1247,15 +1247,15 @@ public class SimpleParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_literal_value; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterLiteral_value(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterLiteral_value(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitLiteral_value(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitLiteral_value(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitLiteral_value(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitLiteral_value(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1309,15 +1309,15 @@ public class SimpleParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_start; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).enterStart(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).enterStart(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SimpleListener ) ((SimpleListener)listener).exitStart(this);
+			if ( listener instanceof RusticodeListener ) ((RusticodeListener)listener).exitStart(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleVisitor ) return ((SimpleVisitor<? extends T>)visitor).visitStart(this);
+			if ( visitor instanceof RusticodeVisitor ) return ((RusticodeVisitor<? extends T>)visitor).visitStart(this);
 			else return visitor.visitChildren(this);
 		}
 	}

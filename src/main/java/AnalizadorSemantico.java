@@ -1,22 +1,35 @@
-import java.util.HashMap;
-import java.util.Map;
+import language.RusticodeBaseVisitor;
+import language.RusticodeParser;
 
-/*
-Extiende una clase generada por ANTLR.
-La cual permite visitar los nodos del arbol sintactico.
-A su vez, valida la semantica del codigo fuente basado en las reglas del lenguaje.
-Esto incluye:
-    -Asegurarse que las variables esten declaradas antes de ser usadas.
-    -Verificar los tipos de datos en las operaciones de asignacion y comparación.
-    -Controlar que las expresiones booleanas sean validas dentro de las sentencias como if o while.
-
-
-* */
-public class AnalizadorSemantico extends SimpleBaseVisitor{
+/**
+ * Clase que extiende el visitante base generado por ANTLR para la gramática Rusticode.
+ *
+ * Esta clase proporciona implementaciones personalizadas para visitar los nodos del árbol
+ * sintáctico generado por el parser de Rusticode. Se encarga de realizar el análisis
+ * semántico del código fuente basándose en las reglas específicas del lenguaje Rusticode.
+ *
+ * Responsabilidades principales:
+ * - Recorrer el árbol sintáctico generado por el parser de Rusticode.
+ * - Realizar comprobaciones semánticas específicas del lenguaje Rusticode.
+ * - Generar información semántica o código intermedio según sea necesario.
+ *
+ * Algunas comprobaciones semánticas que podría incluir (a confirmar según las especificaciones de Rusticode):
+ * - Verificar la declaración y ámbito de variables.
+ * - Comprobar la compatibilidad de tipos en expresiones y asignaciones.
+ * - Validar el uso correcto de estructuras de control y funciones.
+ *
+ * Uso típico:
+ * RusticodeCustomVisitor visitor = new RusticodeCustomVisitor();
+ * visitor.visit(tree);
+ *
+ * @see org.antlr.v4.runtime.tree.AbstractParseTreeVisitor
+ * @see language.RusticodeParser
+ */
+public class AnalizadorSemantico extends RusticodeBaseVisitor<Void> {
     private TablaDeSimbolos tablaDeSimbolos = new TablaDeSimbolos();
 
     @Override
-    public Void visitDefinicion(SimpleParser.DefinicionContext ctx) {
+    public Void visitDefinicion(RusticodeParser.DefinicionContext ctx) {
         String varName = ctx.VAR().getText();
         String varType = ctx.type().getText();
 
@@ -34,7 +47,7 @@ public class AnalizadorSemantico extends SimpleBaseVisitor{
     }
 
     @Override
-    public Void visitAsignacion(SimpleParser.AsignacionContext ctx) {
+    public Void visitAsignacion(RusticodeParser.AsignacionContext ctx) {
         String varName = ctx.VAR().getText();
 
         // Verificar que la variable esté declarada
@@ -54,7 +67,7 @@ public class AnalizadorSemantico extends SimpleBaseVisitor{
     }
 
     // Método auxiliar para obtener el tipo de un valor literal
-    private String obtenerTipoLiteral(SimpleParser.Literal_valueContext ctx) {
+    private String obtenerTipoLiteral(RusticodeParser.Literal_valueContext ctx) {
         if (ctx.NUM() != null) return "int";
         if (ctx.CHAR() != null) return "char";
         if (ctx.bool() != null) return "bool";
@@ -62,17 +75,16 @@ public class AnalizadorSemantico extends SimpleBaseVisitor{
     }
 
     // Método auxiliar para obtener el tipo de una expresión matemática
-    private String obtenerTipoExpresion(SimpleParser.Exp_matContext ctx) {
+    private String obtenerTipoExpresion(RusticodeParser.Exp_matContext ctx) {
         return "int"; // Ejemplo básico
     }
 
     @Override
-    public Void visitIf_sentence(SimpleParser.If_sentenceContext ctx) {
+    public Void visitIf_sentence(RusticodeParser.If_sentenceContext ctx) {
         String conditionType = obtenerTipoExpresion(ctx.bool());
         if (!conditionType.equals("bool")) {
             throw new RuntimeException("Error: La condición en el if debe ser de tipo bool.");
         }
         return visitChildren(ctx);
     }
-
 }

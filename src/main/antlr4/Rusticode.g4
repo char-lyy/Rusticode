@@ -1,4 +1,4 @@
-grammar Simple;
+grammar Rusticode;
 
 /**
     ------------------------------------------

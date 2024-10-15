@@ -11,6 +11,7 @@ programa: START sentencia END;
 
 sentencia: (definicion | asignacion | if_sentence | while_sentence) SEMICOLON;
 
+
 definicion: type DDPOINT VAR (ASSIG literal_value)?
            | ('?int' | '?real' | '?char' | '?bool') DDPOINT VAR('[' NUM ']')? ;
 
@@ -45,7 +46,7 @@ exp_log
     ;
 
 
-if_sentence: IF OPENBRACKET bool CLOSEDBRACKET OPENKEY sentencia+ CLOSEKEY ENDIF;
+if_sentence: IF OPENBRACKET exp_log CLOSEDBRACKET OPENKEY sentencia+ CLOSEKEY ENDIF;
 
 while_sentence: WHILE OPENBRACKET bool CLOSEDBRACKET OPENKEY sentencia+ CLOSEKEY ENDWHILE;
 

@@ -1,3 +1,4 @@
+// Generated from C:/Users/Evelin Suarez/OneDrive/Desktop/Estudio/repoR/src/main/antlr4/Rusticode.g4 by ANTLR 4.13.1
 package language;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -8,9 +9,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class RusticodeParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.13.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -1016,8 +1017,8 @@ public class RusticodeParser extends Parser {
 	public static class If_sentenceContext extends ParserRuleContext {
 		public TerminalNode IF() { return getToken(RusticodeParser.IF, 0); }
 		public TerminalNode OPENBRACKET() { return getToken(RusticodeParser.OPENBRACKET, 0); }
-		public BoolContext bool() {
-			return getRuleContext(BoolContext.class,0);
+		public Exp_logContext exp_log() {
+			return getRuleContext(Exp_logContext.class,0);
 		}
 		public TerminalNode CLOSEDBRACKET() { return getToken(RusticodeParser.CLOSEDBRACKET, 0); }
 		public TerminalNode OPENKEY() { return getToken(RusticodeParser.OPENKEY, 0); }
@@ -1060,7 +1061,7 @@ public class RusticodeParser extends Parser {
 			setState(145);
 			match(OPENBRACKET);
 			setState(146);
-			bool();
+			exp_log(0);
 			setState(147);
 			match(CLOSEDBRACKET);
 			setState(148);
@@ -1458,8 +1459,8 @@ public class RusticodeParser extends Parser {
 		"\u0000\u0000\u0000\u008c\u008f\u0001\u0000\u0000\u0000\u008d\u008b\u0001"+
 		"\u0000\u0000\u0000\u008d\u008e\u0001\u0000\u0000\u0000\u008e\u0011\u0001"+
 		"\u0000\u0000\u0000\u008f\u008d\u0001\u0000\u0000\u0000\u0090\u0091\u0005"+
-		"\u000e\u0000\u0000\u0091\u0092\u0005$\u0000\u0000\u0092\u0093\u0003\u000e"+
-		"\u0007\u0000\u0093\u0094\u0005%\u0000\u0000\u0094\u0096\u0005&\u0000\u0000"+
+		"\u000e\u0000\u0000\u0091\u0092\u0005$\u0000\u0000\u0092\u0093\u0003\u0010"+
+		"\b\u0000\u0093\u0094\u0005%\u0000\u0000\u0094\u0096\u0005&\u0000\u0000"+
 		"\u0095\u0097\u0003\u0002\u0001\u0000\u0096\u0095\u0001\u0000\u0000\u0000"+
 		"\u0097\u0098\u0001\u0000\u0000\u0000\u0098\u0096\u0001\u0000\u0000\u0000"+
 		"\u0098\u0099\u0001\u0000\u0000\u0000\u0099\u009a\u0001\u0000\u0000\u0000"+

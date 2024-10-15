@@ -1,90 +1,175 @@
-import language.RusticodeBaseVisitor;
+
+import language.RusticodeBaseListener;
 import language.RusticodeParser;
+import org.antlr.v4.runtime.ParserRuleContext;
 
-/**
- * Clase que extiende el visitante base generado por ANTLR para la gramática Rusticode.
- *
- * Esta clase proporciona implementaciones personalizadas para visitar los nodos del árbol
- * sintáctico generado por el parser de Rusticode. Se encarga de realizar el análisis
- * semántico del código fuente basándose en las reglas específicas del lenguaje Rusticode.
- *
- * Responsabilidades principales:
- * - Recorrer el árbol sintáctico generado por el parser de Rusticode.
- * - Realizar comprobaciones semánticas específicas del lenguaje Rusticode.
- * - Generar información semántica o código intermedio según sea necesario.
- *
- * Algunas comprobaciones semánticas que podría incluir (a confirmar según las especificaciones de Rusticode):
- * - Verificar la declaración y ámbito de variables.
- * - Comprobar la compatibilidad de tipos en expresiones y asignaciones.
- * - Validar el uso correcto de estructuras de control y funciones.
- *
- * Uso típico:
- * RusticodeCustomVisitor visitor = new RusticodeCustomVisitor();
- * visitor.visit(tree);
- *
- * @see org.antlr.v4.runtime.tree.AbstractParseTreeVisitor
- * @see language.RusticodeParser
- */
-public class AnalizadorSemantico extends RusticodeBaseVisitor<Void> {
-    private TablaDeSimbolos tablaDeSimbolos = new TablaDeSimbolos();
+import java.util.*;
 
+public class AnalizadorSemantico extends RusticodeBaseListener {
+    private TablaDeSimbolos tablaSimbolos = new TablaDeSimbolos();
+    private List<String> errores = new ArrayList<>();
+
+
+    /**
+     * Se utiliza este metodo cuando se encuentra una definicion de variable.
+     * Verifica si la variable ya está definida, sino, la agrega a la tabla de simbolos.
+     */
     @Override
-    public Void visitDefinicion(RusticodeParser.DefinicionContext ctx) {
-        String varName = ctx.VAR().getText();
-        String varType = ctx.type().getText();
+    public void enterDefinicion(RusticodeParser.DefinicionContext ctx) {
+        String tipo = ctx.type() != null ? ctx.type().getText() : ctx.getChild(0).getText();
+        String nombre = ctx.VAR().getText();
 
-        // Declarar la variable en la tabla de símbolos
-        tablaDeSimbolos.declarar(varName, varType);
+        if (tablaSimbolos.existeSimbolo(nombre)) {
+            errores.add("Error: Variable '" + nombre + "' ya definida.");
+        } else {
+            tablaSimbolos.agregarSimbolo(nombre, tipo);
+        }
+    }
 
-        // Si hay asignación de valor, validar tipo
-        if (ctx.literal_value() != null) {
-            String assignedType = obtenerTipoLiteral(ctx.literal_value());
-            if (!varType.equals(assignedType)) {
-                throw new RuntimeException("Error: No se puede asignar " + assignedType + " a " + varType);
+
+
+    /**
+     * Verifica que una variable esté definida antes de una asignacion y
+     * que el tipo de valor asignado sea compatible.
+     *
+     */
+    @Override
+    public void enterAsignacion(RusticodeParser.AsignacionContext ctx) {
+        String nombre = ctx.VAR().getText();
+
+        if (!tablaSimbolos.existeSimbolo(nombre)) {
+            errores.add("Error: Variable '" + nombre + "' no definida.");
+        } else {
+            String tipoVariable = tablaSimbolos.getTipo(nombre);
+            String tipoValor = inferirTipo(ctx);
+
+            if (!tipoVariable.equals(tipoValor) && !tipoValor.equals("desconocido")) {
+                errores.add("Error: Tipo incompatible en asignación a '" + nombre + "'.");
             }
         }
-        return null;
+    }
+
+
+
+    private String inferirTipo(RusticodeParser.AsignacionContext ctx) {
+        if (ctx.literal_value() != null) {
+            return inferirTipoLiteral(ctx.literal_value());
+        } else if (ctx.exp_mat() != null) {
+            return "int"; // Asumimos que las expresiones matemáticas resultan en int o real
+        }
+        return "desconocido";
+    }
+
+    private String inferirTipoLiteral(RusticodeParser.Literal_valueContext ctx) {
+        if (ctx.NUM() != null) {
+            return ctx.NUM().getText().contains(".") ? "real" : "int";
+        } else if (ctx.CHAR() != null) {
+            return "char";
+        } else if (ctx.bool() != null) {
+            return "bool";
+        }
+        return "desconocido";
+    }
+
+
+
+    /**
+     * Verifica que todas las variables usadas en expresiones matematicas sean de tipo numerico.
+     */
+    @Override
+    public void enterExp_mat(RusticodeParser.Exp_matContext ctx) {
+        // Verificar tipos en expresiones matemáticas
+        for (RusticodeParser.TerminoContext termino : ctx.termino()) {
+            for (RusticodeParser.FactorContext factor : termino.factor()) {
+                verificarTipoNumerico(factor);
+            }
+        }
+    }
+
+    private void verificarTipoNumerico(RusticodeParser.FactorContext ctx) {
+        if (ctx.VAR() != null) {
+            String nombre = ctx.VAR().getText();
+            if (!tablaSimbolos.existeSimbolo(nombre)) {
+                errores.add("Error: Variable '" + nombre + "' no definida en expresión matemática.");
+            } else {
+                String tipo = tablaSimbolos.getTipo(nombre);
+                if (!tipo.equals("int") && !tipo.equals("real")) {
+                    errores.add("Error: Variable '" + nombre + "' no es de tipo numérico.");
+                }
+            }
+        }
+    }
+
+
+
+    /**
+     * Verifica que todas las variables usadas en expresiones logicas sean de tipo booleano.
+     */
+
+    @Override
+    public void enterExp_log(RusticodeParser.Exp_logContext ctx) {
+        // Verificar tipos en expresiones lógicas
+        if (ctx.VAR() != null && !ctx.VAR().isEmpty()) {
+            verificarTipoLogico(ctx.VAR(0).getText());
+        }
+        for (RusticodeParser.Exp_logContext subExpr : ctx.exp_log()) {
+            if (subExpr.VAR() != null && !subExpr.VAR().isEmpty()) {
+                verificarTipoLogico(subExpr.VAR(0).getText());
+            }
+        }
+    }
+
+    private void verificarTipoLogico(String nombre) {
+        if (!tablaSimbolos.existeSimbolo(nombre)) {
+            errores.add("Error: Variable '" + nombre + "' no definida en expresión lógica.");
+        } else {
+            String tipo = tablaSimbolos.getTipo(nombre);
+            if (!tipo.equals("bool")) {
+                errores.add("Error: Variable '" + nombre + "' no es de tipo booleano.");
+            }
+        }
+    }
+
+
+
+    @Override
+    public void enterIf_sentence(RusticodeParser.If_sentenceContext ctx) {
+        verificarCondicion(ctx.exp_log());
     }
 
     @Override
-    public Void visitAsignacion(RusticodeParser.AsignacionContext ctx) {
-        String varName = ctx.VAR().getText();
+    public void enterWhile_sentence(RusticodeParser.While_sentenceContext ctx) {
+        verificarCondicion(ctx.bool());
+    }
 
-        // Verificar que la variable esté declarada
-        if (!tablaDeSimbolos.existe(varName)) {
-            throw new RuntimeException("Error: Variable '" + varName + "' no está declarada.");
+    private void verificarCondicion(ParserRuleContext ctx) {
+        // Verificar que la condición sea booleana
+        if (ctx instanceof RusticodeParser.Exp_logContext) {
+            // Lógica para expresiones lógicas
+            verificarExpresionLogica((RusticodeParser.Exp_logContext) ctx);
+        } else if (ctx instanceof RusticodeParser.BoolContext) {
+            // Lógica para booleanos literales
+            // No necesita verificación adicional ya que es un booleano literal
+        } else {
+            errores.add("Error: La condición debe ser una expresión booleana.");
         }
+    }
 
-        // Verificar el tipo de la asignación
-        String varType = tablaDeSimbolos.obtenerTipo(varName);
-        String assignedType = obtenerTipoExpresion(ctx.exp_mat());
-
-        if (!varType.equals(assignedType)) {
-            throw new RuntimeException("Error: Tipo incompatible. No se puede asignar " + assignedType + " a " + varType);
+    private void verificarExpresionLogica(RusticodeParser.Exp_logContext ctx) {
+        // Verificar cada parte de la expresión lógica
+        for (RusticodeParser.Exp_logContext subExpr : ctx.exp_log()) {
+            verificarExpresionLogica(subExpr);
         }
-
-        return null;
-    }
-
-    // Método auxiliar para obtener el tipo de un valor literal
-    private String obtenerTipoLiteral(RusticodeParser.Literal_valueContext ctx) {
-        if (ctx.NUM() != null) return "int";
-        if (ctx.CHAR() != null) return "char";
-        if (ctx.bool() != null) return "bool";
-        return null;
-    }
-
-    // Método auxiliar para obtener el tipo de una expresión matemática
-    private String obtenerTipoExpresion(RusticodeParser.Exp_matContext ctx) {
-        return "int"; // Ejemplo básico
-    }
-
-    @Override
-    public Void visitIf_sentence(RusticodeParser.If_sentenceContext ctx) {
-        String conditionType = obtenerTipoExpresion(ctx.bool());
-        if (!conditionType.equals("bool")) {
-            throw new RuntimeException("Error: La condición en el if debe ser de tipo bool.");
+        if (ctx.VAR() != null && !ctx.VAR().isEmpty()) {
+            verificarTipoLogico(ctx.VAR(0).getText());
         }
-        return visitChildren(ctx);
     }
+
+
+
+    public List<String> getErrores() {
+        return errores;
+    }
+
+
 }

@@ -7,27 +7,20 @@ import java.util.Map;
 *
 */
 public class TablaDeSimbolos {
-    private Map<String, String> tabla;
+    private Map<String, String> simbolos = new HashMap<>();
 
-    public TablaDeSimbolos() {
-        tabla = new HashMap<>();
+    //Añade una nueva variable a la tabla
+    public void agregarSimbolo(String nombre, String tipo) {
+        simbolos.put(nombre, tipo);
     }
 
-    public void declarar(String nombre, String tipo) {
-        if (tabla.containsKey(nombre)) {
-            throw new RuntimeException("Error: Variable '" + nombre + "' ya está declarada.");
-        }
-        tabla.put(nombre, tipo);
+    //Verifica si una variable ya ha sido declarada
+    public boolean existeSimbolo(String nombre) {
+        return simbolos.containsKey(nombre);
     }
 
-    public String obtenerTipo(String nombre) {
-        if (!tabla.containsKey(nombre)) {
-            throw new RuntimeException("Error: Variable '" + nombre + "' no está declarada.");
-        }
-        return tabla.get(nombre);
-    }
-
-    public boolean existe(String nombre) {
-        return tabla.containsKey(nombre);
+    //Obtiene el tipo de una variable declarada
+    public String getTipo(String nombre) {
+        return simbolos.get(nombre);
     }
 }

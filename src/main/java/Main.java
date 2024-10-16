@@ -4,7 +4,7 @@ import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -41,29 +41,19 @@ public class Main {
         // Crear el parser
         RusticodeParser parser = new RusticodeParser(tokens);
 
-        // Obtener el árbol de análisis
+        // Obtener el árbol de análisis sintactico
         ParseTree tree = parser.programa();
-
-        // Imprimir el árbol
-        System.out.println("Árbol de análisis:");
+        System.out.println("Árbol de análisis sintactico:");
         System.out.println(tree.toStringTree(parser));
 
         // Ejecutar el analizador semántico
-        AnalizadorSemantico analizador = new AnalizadorSemantico();
-        ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(analizador, tree);
+        SemanticoVisitor analizador = new SemanticoVisitor();
+        analizador.visit(tree);
 
-        // Imprimir errores semánticos
-        List<String> errores = analizador.getErrores();
-        if (errores.isEmpty()) {
-            System.out.println("Análisis semántico completado sin errores.");
-        } else {
-            System.out.println("Errores encontrados:");
-            for (String error : errores) {
-                System.out.println(error);
-            }
-        }
+
+
+        System.out.println("Arbol semantico");
+        analizador.imprimirArbol();
     }
-
 
 }

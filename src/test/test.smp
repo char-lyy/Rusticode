@@ -1,2 +1,12 @@
+start:
+    int :: var001;
+    var001 << 10;
 
+    if (var001 > 5) {
+        var001 << 20;
+    } endif;
 
+    while (var001 < 30) {
+        var001 << var001 + 1;
+    } endwhile;
+end

@@ -38,6 +38,16 @@ public interface RusticodeListener extends ParseTreeListener {
 	 */
 	void exitDefinicion(RusticodeParser.DefinicionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link RusticodeParser#const_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterConst_type(RusticodeParser.Const_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RusticodeParser#const_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitConst_type(RusticodeParser.Const_typeContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link RusticodeParser#asignacion}.
 	 * @param ctx the parse tree
 	 */
@@ -98,6 +108,16 @@ public interface RusticodeListener extends ParseTreeListener {
 	 */
 	void exitExp_log(RusticodeParser.Exp_logContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link RusticodeParser#comparador}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparador(RusticodeParser.ComparadorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link RusticodeParser#comparador}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparador(RusticodeParser.ComparadorContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link RusticodeParser#if_sentence}.
 	 * @param ctx the parse tree
 	 */
@@ -137,14 +157,4 @@ public interface RusticodeListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLiteral_value(RusticodeParser.Literal_valueContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link RusticodeParser#start}.
-	 * @param ctx the parse tree
-	 */
-	void enterStart(RusticodeParser.StartContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link RusticodeParser#start}.
-	 * @param ctx the parse tree
-	 */
-	void exitStart(RusticodeParser.StartContext ctx);
 }

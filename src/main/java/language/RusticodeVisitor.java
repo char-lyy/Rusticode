@@ -29,6 +29,12 @@ public interface RusticodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDefinicion(RusticodeParser.DefinicionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link RusticodeParser#const_type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConst_type(RusticodeParser.Const_typeContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link RusticodeParser#asignacion}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -65,6 +71,12 @@ public interface RusticodeVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExp_log(RusticodeParser.Exp_logContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link RusticodeParser#comparador}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparador(RusticodeParser.ComparadorContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link RusticodeParser#if_sentence}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -88,10 +100,4 @@ public interface RusticodeVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitLiteral_value(RusticodeParser.Literal_valueContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link RusticodeParser#start}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStart(RusticodeParser.StartContext ctx);
 }

@@ -7,48 +7,68 @@ grammar Rusticode;
 */
 
 
-programa: START sentencia END;
+programa: START sentencia+ END;
 
 sentencia: (definicion | asignacion | if_sentence | while_sentence) SEMICOLON;
 
 
-definicion: type DDPOINT VAR (ASSIG literal_value)?
-           | ('?int' | '?real' | '?char' | '?bool') DDPOINT VAR('[' NUM ']')? ;
+//definicion: type DDPOINT VAR (ASSIG literal_value)?
+   //        | const_type DDPOINT VAR ('[' NUM ']')?;
 
-asignacion: VAR ASSIG (literal_value | exp_mat
-                       | '[' NUM ']' ASSIG literal_value | exp_mat);
+definicion
+    : type DDPOINT VAR            // Definición de variables sin valor inicial
+    | type DDPOINT VAR ('[' NUM ']')?
+    | const_type DDPOINT VAR    // Definición de constantes sin asignación
+    ;
+
+const_type
+    : '?int'
+    | '?real'
+    | '?char'
+    ;
+
+asignacion
+    : VAR ASSIG (literal_value | exp_mat)    // Asignación a una variable simple
+    | VAR '[' NUM ']' ASSIG (literal_value | exp_mat)  // Asignación a una posición en un arreglo
+    ;
 
 exp_mat: termino (SUM termino | REST termino)*;
 
-termino: factor (MULT factor | REST factor)*;
+termino: factor (MULT factor | REST factor | DIV factor)*;
 
 factor: OPENBRACKET exp_mat CLOSEDBRACKET
       | NUM
       | VAR;
 
 
-bool: ('True' | 'False') | exp_log EQUAL exp_log;
+bool
+    : TRUE
+    | FALSE
+    | exp_log;
 
 
 exp_log
     : exp_log AND exp_log
     | exp_log OR exp_log
-    | exp_log HIGH exp_log
-    | exp_log LESS exp_log
-    | exp_log HEQL exp_log
-    | exp_log LEQL exp_log
-    | VAR EQUAL (VAR | NUM)
+    | exp_log comparador exp_log
+    | (VAR | NUM) comparador (VAR | NUM)
     | NEGT OPENBRACKET exp_log CLOSEDBRACKET
     | OPENBRACKET exp_log CLOSEDBRACKET
+    ;
 
-    | VAR
-    | NUM
+comparador
+    : HIGH
+    | LESS
+    | HEQL
+    | LEQL
+    | EQUAL
+    | UNEQL
     ;
 
 
 if_sentence: IF OPENBRACKET exp_log CLOSEDBRACKET OPENKEY sentencia+ CLOSEKEY ENDIF;
 
-while_sentence: WHILE OPENBRACKET bool CLOSEDBRACKET OPENKEY sentencia+ CLOSEKEY ENDWHILE;
+while_sentence: WHILE OPENBRACKET exp_log CLOSEDBRACKET OPENKEY sentencia+ CLOSEKEY ENDWHILE;
 
 type: DEFINT | DEFREAL | DEFCHAR;
 
@@ -60,12 +80,6 @@ literal_value: NUM | CHAR | bool;
            Analizador Léxico Gramatico
     ------------------------------------------
 */
-
-start
-:
-	'hello' 'world'
-;
-
 
 
 // Palabras reservadas
@@ -85,6 +99,7 @@ FALSE: 'False';
 SUM: '+';
 REST: '-';
 MULT: '*';
+DIV: '/';
 
 // Operadores de comparación
 HIGH: '>';
@@ -117,12 +132,15 @@ CLOSEKEY: '}';
 NUM: '-'? [0-9]+ ('.' [0-9]+)?;
 
 // Caracteres (variables)
-CHAR: [a-zA-Z_];
+CHAR: '\'' [a-zA-Z_] '\'';
 
 // Variable
 VAR: 'var' [0-9] [0-9] [0-9];
 
 // Espacios en blanco
 SW: [ \t\r\n]+ -> skip;
+
+// Comentarios
+COM: '\'' . '\'' | '"' . '"';
 
 

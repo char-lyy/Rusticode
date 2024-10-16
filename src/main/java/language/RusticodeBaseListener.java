@@ -53,6 +53,18 @@ public class RusticodeBaseListener implements RusticodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterConst_type(RusticodeParser.Const_typeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConst_type(RusticodeParser.Const_typeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAsignacion(RusticodeParser.AsignacionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -125,6 +137,18 @@ public class RusticodeBaseListener implements RusticodeListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterComparador(RusticodeParser.ComparadorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitComparador(RusticodeParser.ComparadorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterIf_sentence(RusticodeParser.If_sentenceContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -168,18 +192,6 @@ public class RusticodeBaseListener implements RusticodeListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitLiteral_value(RusticodeParser.Literal_valueContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterStart(RusticodeParser.StartContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitStart(RusticodeParser.StartContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

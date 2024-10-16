@@ -1,6 +1,6 @@
 import language.RusticodeBaseVisitor;
 import language.RusticodeParser;
-import org.antlr.v4.runtime.tree.ParseTree;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,14 +16,6 @@ public class SemanticoVisitor extends RusticodeBaseVisitor<NodoSemantico> {
         this.raiz = new NodoSemantico("Programa", "Raíz");
     }
 
-//    @Override
-//    public NodoSemantico visitPrograma(RusticodeParser.ProgramaContext ctx) {
-//        for (RusticodeParser.SentenciaContext sentencia : ctx.sentencia()) {
-//            visit(sentencia);  // Visita cada sentencia individualmente
-//        }
-//        return raiz;
-//    }
-
     @Override
     public NodoSemantico visitPrograma(RusticodeParser.ProgramaContext ctx) {
         // Recorre todas las sentencias en el programa
@@ -35,7 +27,6 @@ public class SemanticoVisitor extends RusticodeBaseVisitor<NodoSemantico> {
         }
         return raiz;  // Devuelve la raíz con todos sus hijos
     }
-
 
 
     @Override
@@ -82,10 +73,6 @@ public class SemanticoVisitor extends RusticodeBaseVisitor<NodoSemantico> {
     private void visitarEstructuraControl(String tipo, String condicion) {
         NodoSemantico nodoControl = new NodoSemantico(tipo, condicion);
         raiz.agregarHijo(nodoControl);
-    }
-
-    public NodoSemantico getRaiz() {
-        return raiz;
     }
 
     public void imprimirArbol() {

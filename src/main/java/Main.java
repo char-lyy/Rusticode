@@ -50,9 +50,9 @@ public class Main {
         SemanticoVisitor analizador = new SemanticoVisitor();
         analizador.visit(tree);
 
+        System.out.println("");
 
-
-        System.out.println("Arbol semantico");
+        System.out.println("Arbol Semantico:");
         analizador.imprimirArbol();
     }
 
